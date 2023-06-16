@@ -3,7 +3,7 @@
 void FirstComeFirstService::start() {
     while (finish.size() != (long unsigned int)task_num) {
         cout << "time:" << time << endl;
-        if (!create.empty() && create.front().arrival_time == time) {
+        while (!create.empty() && create.front().arrival_time <= time) {
             wait.push(create.front());
             cout << "   ";
             cout << create.front().task_name << " is arrived" << endl;
@@ -34,7 +34,6 @@ void FirstComeFirstService::start() {
             running.status = none;
         }
         time++;
-        if (time > 40) break;
     }
     cout << "all task is finished" << endl;
 }
