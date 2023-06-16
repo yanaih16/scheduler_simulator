@@ -6,5 +6,5 @@ class FirstComeFirstService : public Scheduler {
     queue<task> wait;
 
    public:
-    void run();
+    void start();
 };
