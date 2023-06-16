@@ -15,4 +15,4 @@ ALL : $(OBJS)
 	$(CC) $(CFLAG) -o $(BUILDDIR)/$@ -c $<
 
 clean :
-	rm -rf ./build
+	rm -rf $(BUILDDIR)
