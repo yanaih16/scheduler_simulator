@@ -4,9 +4,6 @@ SRCS = $(shell find *.cpp)
 OBJS = $(SRCS:%.cpp=%.o)
 BUILDDIR = ./build
 
-RUN : ALL
-	$(BUILDDIR)/main
-
 ALL : $(OBJS)
 	$(CC) $(CFLAG) -o $(BUILDDIR)/main $(addprefix $(BUILDDIR)/,$(OBJS))
 
