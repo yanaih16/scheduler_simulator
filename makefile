@@ -8,7 +8,7 @@ RUN : ALL
 	$(BUILDDIR)/main
 
 ALL : $(OBJS)
-	$(CC) $(CFLAG) -o $(BUILDDIR)main $(addprefix $(BUILDDIR)/,$(OBJS))
+	$(CC) $(CFLAG) -o $(BUILDDIR)/main $(addprefix $(BUILDDIR)/,$(OBJS))
 
 %.o: %.cpp
 	mkdir -p build
