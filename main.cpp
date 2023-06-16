@@ -15,7 +15,7 @@ int main() {
     switch (num) {
         case 0:
             FirstComeFirstService schedule;
-            schedule.run();
+            schedule.start();
             schedule.result();
             break;
     }

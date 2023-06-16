@@ -7,11 +7,10 @@ Scheduler::Scheduler() {
     cin >> task_num;
     for (int i = 0; i < task_num; i++) {
         task t;
-        cout << "task name:";
+        cout << "task name,arriva time,cost" << endl;
+        ;
         cin >> t.task_name;
-        cout << "arriva time:";
         cin >> t.arrival_time;
-        cout << "cost:";
         cin >> t.cost;
         create.push_back(t);
     }
@@ -21,6 +20,9 @@ Scheduler::Scheduler() {
 void Scheduler::result() {
     cout << "task name|arrival time|finish time|response time" << endl;
     for (auto v : finish) {
-        cout << v.task_name << "|" << v.arrival_time << "|" << v.fin_time << "|" << v.fin_time - v.arrival_time << endl;
+        cout << setw(9) << v.task_name << "|"
+             << setw(12) << v.arrival_time << "|"
+             << setw(11) << v.fin_time << "|"
+             << setw(13) << v.fin_time - v.arrival_time << endl;
     }
 }
