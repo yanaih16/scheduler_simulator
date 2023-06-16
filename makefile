@@ -12,7 +12,7 @@ ALL : $(OBJS)
 
 %.o: %.cpp
 	mkdir -p build
-	$(CC) $(CFLAG) -o $(BUILDDIR)$@ -c $<
+	$(CC) $(CFLAG) -o $(BUILDDIR)/$@ -c $<
 
 clean :
 	rm -rf ./build
