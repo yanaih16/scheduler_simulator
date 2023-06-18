@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 
 #include "first_come_first_service.hpp"
+#include "round_robin.hpp"
 #include "schedule.hpp"
 #include "shortest_processing_time_first.hpp"
 
@@ -19,6 +20,10 @@ int main() {
         schedule.result();
     } else if (num == 1) {
         ShortestProcessingTimeFirst schedule;
+        schedule.start();
+        schedule.result();
+    } else {
+        RoundRobin schedule;
         schedule.start();
         schedule.result();
     }
