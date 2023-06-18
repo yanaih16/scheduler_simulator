@@ -12,10 +12,9 @@ Scheduler::Scheduler() {
     if (num == 0) {
         cout << "task of num" << endl;
         cin >> task_num;
+        cout << "task name,arriva time,cost" << endl;
         for (int i = 0; i < task_num; i++) {
             task t;
-            cout << "task name,arriva time,cost" << endl;
-            ;
             cin >> t.task_name;
             cin >> t.arrival_time;
             cin >> t.cost;
