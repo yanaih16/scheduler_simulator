@@ -5,7 +5,7 @@ OBJS = $(SRCS:%.cpp=%.o)
 BUILDDIR = ./build
 
 ALL : $(OBJS)
-	$(CC) $(CFLAG) -o $(BUILDDIR)/main $(addprefix $(BUILDDIR)/,$(OBJS))
+	$(CC) $(CFLAG) -o $(BUILDDIR)/schefuler_simulator $(addprefix $(BUILDDIR)/,$(OBJS))
 
 %.o: %.cpp
 	mkdir -p build
