@@ -1,4 +1,4 @@
-#include "schedule.hpp"
+#include "../include/schedule.hpp"
 
 Scheduler::Scheduler() {
     time = 0;

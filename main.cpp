@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 
-#include "first_come_first_service.hpp"
-#include "round_robin.hpp"
-#include "schedule.hpp"
-#include "shortest_processing_time_first.hpp"
+#include <first_come_first_service.hpp>
+#include <round_robin.hpp>
+#include <schedule.hpp>
+#include <shortest_processing_time_first.hpp>
 
 using namespace std;
 

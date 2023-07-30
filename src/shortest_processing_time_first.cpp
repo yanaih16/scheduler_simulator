@@ -1,21 +1,19 @@
-#include "round_robin.hpp"
+#include "../include/shortest_processing_time_first.hpp"
 
-void RoundRobin::start() {
-    cout << "slice time" << endl;
-    cin >> slice_time;
+void ShortestProcessingTimeFirst::start() {
     while (finish.size() != (long unsigned int)task_num) {
         cout << "time:" << time << endl;
         while (!create.empty() && create.front().arrival_time == time) {
-            wait.push(create.front());
+            wait.push_back(create.front());
             cout << "   ";
             cout << create.front().task_name << " is arrived" << endl;
             create.pop_front();
+            sort(wait.begin(), wait.end(), [](task& e1, task& e2) { return e1.cost < e2.cost; });
         }
         if (running.status == none) {
             if (!wait.empty()) {
                 running = wait.front();
-                wait.pop();
-                quantum = 0;
+                wait.pop_front();
             } else {
                 cout << "   ";
                 cout << "no task" << endl;
@@ -25,12 +23,8 @@ void RoundRobin::start() {
             running.progres++;
             cout << "   ";
             cout << running.task_name << "(" << running.progres << "/" << running.cost << ")" << endl;
-            quantum++;
             if (running.progres == running.cost) {
                 running.status = fin;
-            } else if (quantum == slice_time) {
-                wait.push(running);
-                running.status = none;
             }
         }
         if (running.status == fin) {

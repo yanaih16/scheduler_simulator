@@ -1,6 +1,8 @@
-#include "first_come_first_service.hpp"
+#include "../include/round_robin.hpp"
 
-void FirstComeFirstService::start() {
+void RoundRobin::start() {
+    cout << "slice time" << endl;
+    cin >> slice_time;
     while (finish.size() != (long unsigned int)task_num) {
         cout << "time:" << time << endl;
         while (!create.empty() && create.front().arrival_time == time) {
@@ -13,6 +15,7 @@ void FirstComeFirstService::start() {
             if (!wait.empty()) {
                 running = wait.front();
                 wait.pop();
+                quantum = 0;
             } else {
                 cout << "   ";
                 cout << "no task" << endl;
@@ -22,8 +25,12 @@ void FirstComeFirstService::start() {
             running.progres++;
             cout << "   ";
             cout << running.task_name << "(" << running.progres << "/" << running.cost << ")" << endl;
+            quantum++;
             if (running.progres == running.cost) {
                 running.status = fin;
+            } else if (quantum == slice_time) {
+                wait.push(running);
+                running.status = none;
             }
         }
         if (running.status == fin) {
