@@ -6,7 +6,8 @@
 
 ## 使い方
 ```bash
-make
+cmake -B build
+cmake --build build
 ./build//schefuler_simulator
 ```
 ### ファイル入力
@@ -22,7 +23,7 @@ C<sub>i</sub>:タスクiの処理時間
 >:  
 >A<sub>i</sub> B<sub>i</sub> C<sub>i</sub>  
 >:  
->A<sub>N</sub> B<sub>N</sub> C<sub>N</sub>    
+>A<sub>N-1</sub> B<sub>N-1</sub> C<sub>N-1</sub>    
 
 ### ランダム生成
 ランダム生成は以下の範囲で生成される
@@ -31,4 +32,4 @@ C<sub>i</sub>:タスクiの処理時間
 >0<=B<=49  
 >1<=C<=50  
 
-生成されたものは`task.txt`に保存される
+生成されたものは'task.txt'に保存される
