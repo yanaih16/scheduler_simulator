@@ -33,7 +33,7 @@ Scheduler::Scheduler() {
     } else {
         srand(std::time(NULL));
         ofstream ofs("task.txt");
-        task_num = 5;
+        task_num = rand() % 18 + 3;
         ofs << task_num << endl;
         for (int i = 0; i < task_num; i++) {
             task t;
