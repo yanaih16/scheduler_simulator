@@ -1,4 +1,4 @@
-#include "schedule.hpp"
+#include "../include/schedule.hpp"
 
 Scheduler::Scheduler() {
     time = 0;
@@ -33,7 +33,7 @@ Scheduler::Scheduler() {
     } else {
         srand(std::time(NULL));
         ofstream ofs("task.txt");
-        task_num = rand() % 18 + 3;
+        task_num = 5;
         ofs << task_num << endl;
         for (int i = 0; i < task_num; i++) {
             task t;

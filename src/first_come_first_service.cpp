@@ -1,19 +1,18 @@
-#include "shortest_processing_time_first.hpp"
+#include "../include/first_come_first_service.hpp"
 
-void ShortestProcessingTimeFirst::start() {
+void FirstComeFirstService::start() {
     while (finish.size() != (long unsigned int)task_num) {
         cout << "time:" << time << endl;
         while (!create.empty() && create.front().arrival_time == time) {
-            wait.push_back(create.front());
+            wait.push(create.front());
             cout << "   ";
             cout << create.front().task_name << " is arrived" << endl;
             create.pop_front();
-            sort(wait.begin(), wait.end(), [](task& e1, task& e2) { return e1.cost < e2.cost; });
         }
         if (running.status == none) {
             if (!wait.empty()) {
                 running = wait.front();
-                wait.pop_front();
+                wait.pop();
             } else {
                 cout << "   ";
                 cout << "no task" << endl;
